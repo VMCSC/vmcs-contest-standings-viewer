@@ -61,8 +61,25 @@ import moment from 'moment'
 export default {
   name: 'App',
   beforeMount() {
+    console.log(
+`
+██╗   ██╗███╗   ███╗ ██████╗███████╗ ██████╗
+██║   ██║████╗ ████║██╔════╝██╔════╝██╔════╝
+██║   ██║██╔████╔██║██║     ███████╗██║
+╚██╗ ██╔╝██║╚██╔╝██║██║     ╚════██║██║
+ ╚████╔╝ ██║ ╚═╝ ██║╚██████╗███████║╚██████╗
+  ╚═══╝  ╚═╝     ╚═╝ ╚═════╝╚══════╝ ╚═════╝
+
+VMCSC Contests Leaderboard
+
+Copyright (c) 2020 Vincent Massey Computer Science Club
+Website text and code licensed under MIT. Audiovisual assets are All Rights Reserved.
+github.com/VMCSC
+
+Developed by:
+David Hui (github.com/BlazingAsher)
+`)
     axios.get("https://b2cdn.vmcs.club/file/vmcs-assets/contests/data.json").then((response) => {
-      console.log(response);
       this.standings = response.data.data;
       this.lastModified = moment(response.data.lastModified*1000).format("LLLL");
     })
