@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <h1>VMCS Contest Standings</h1>
-    <div class="container">
+    <h1 class="text-center mt-5 ">VMCS Contest Standings</h1>
+    <p class="text-center">Last modified: <strong>{{lastModified}}</strong></p>
+    <div class="container mt-5">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -55,12 +56,15 @@
 
 <script>
 import axios from 'axios'
+import moment from 'moment'
+
 export default {
   name: 'App',
   beforeMount() {
     axios.get("https://b2cdn.vmcs.club/file/vmcs-assets/contests/data.json").then((response) => {
       console.log(response);
-      this.standings = response.data;
+      this.standings = response.data.data;
+      this.lastModified = moment(response.data.lastModified*1000).format("LLLL");
     })
   },
   computed: {
@@ -79,6 +83,7 @@ export default {
   data() {
     return {
       standings: {},
+      lastModified: 0,
       selected: -1
     }
   },
@@ -92,13 +97,36 @@ export default {
 }
 </script>
 
-<style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+html {
+  color: #212529;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin: 0;
+}
+
+p {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: bold;
+}
+
+p, a, h1, h2, h3, h4, h5, h6 {
+  transition: color 150ms ease-in;
+}
+
+a {
+  color: #212529;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #6d7079;
 }
 </style>
