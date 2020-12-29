@@ -1,6 +1,6 @@
 {
-    "name": "Vincent Massey Computer Science Club Contests Standings Viewer",
-    "short_name": "VMCSC Contests Standings Viewer",
+    "name": "Vincent Massey Computer Science Club Contests Leaderboard",
+    "short_name": "VMCSC Contests Leaderboard",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

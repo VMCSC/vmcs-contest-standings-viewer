@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1 class="text-center mt-5 ">VMCS Contest Standings</h1>
+    <h1 class="text-center mt-5 ">VMCSC Contests Leaderboard</h1>
     <p class="text-center">Last modified: <strong>{{lastModified}}</strong></p>
     <div class="container mt-5">
       <table class="table table-bordered">
